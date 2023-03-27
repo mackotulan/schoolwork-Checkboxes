@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Browser</title>
+</head>
+
+<body id="bodyElement">
+  <button id="checkboxes">Checkboxes</button>
+  <button id="checkcheckboxes">Check checkboxes</button>
+</body>
+
+</html>
+
+
+<script>
+
+let myToDos = [{
+    text: "Vynest kos",
+    done: false
+},{
+    text: "Nakoupit",
+    done: false
+},{
+    text: "Uklidit",
+    done: true
+},{
+    text: "Nakrmit psa",
+    done: true
+},{
+    text: "Umyt nadobi",
+    done: false
+}]
+
+
+bodyElement.onload = function() {
+   for(let i = 0; i < myToDos.length; i++){
+     let task = document.createElement("p")
+     task.textContent = myToDos[i].text
+     document.body.appendChild(task);
+    }
+}
+
+
+checkboxes.onclick = function() {
+   for(let i = 0; i < myToDos.length; i++){
+     let taskCheckBox = document.createElement("input")
+     taskCheckBox.type = "checkbox";
+     document.body.appendChild(taskCheckBox);
+     
+     let taskLabel = document.createElement("label")
+     taskLabel.textContent = myToDos[i].text;
+     document.body.appendChild(taskLabel);
+    }
+   let newLine = document.createElement("br")
+   document.body.appendChild(newLine);
+}
+
+checkcheckboxes.onclick = function() {
+   for(let i = 0; i < myToDos.length; i++){
+     let taskCheckBox = document.createElement("input")
+     taskCheckBox.type = "checkbox";
+     taskCheckBox.checked = myToDos[i].done
+     document.body.appendChild(taskCheckBox);
+     
+     
+     let taskLabel = document.createElement("label")
+     taskLabel.textContent = myToDos[i].text;
+     document.body.appendChild(taskLabel);
+    }
+     let newLine = document.createElement("br")
+   document.body.appendChild(newLine);
+}
+</script>
+
+</body>
+</html>
